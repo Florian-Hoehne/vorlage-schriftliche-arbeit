@@ -1,0 +1,17 @@
+\chapter{Diagramme}
+\label{cap:diagrams}
+%keep fancy page style - required for each chapter page
+\thispagestyle{fancy}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\node[node] (node1) {Hallo};
+		\node[node, below of=node1] (node2) {Hallo Auch Hallo};
+		\draw[->] (node1) -- (node2);
+	\end{tikzpicture}
+	\caption{Diagramm mit Tikz gezeichnet}
+	\label{fig:erste-abb}
+\end{figure}
+
+Die \Abbildung{erste-abb} ist hier verlinkt.

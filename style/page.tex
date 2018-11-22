@@ -1,0 +1,19 @@
+\usepackage{caption, subcaption, xcolor}
+    \definecolor{caption}{rgb}{0.21, 0.27, 0.31}
+
+    \captionsetup{format=plain, labelfont={color=primary,bf}}
+    \setkomafont{disposition}{\color{primary}\bfseries}
+    \captionsetup{format=plain, labelfont={color=secondary,bf}}
+
+	\renewcommand{\chapterheadstartvskip}{\vspace *{-\baselineskip }}
+
+\usepackage[margin={0.08\paperwidth,0.10\paperheight}, heightrounded]{geometry}
+    \geometry{a4paper, left=30mm, right=20mm, top=25mm, bottom=25mm}
+    \parindent 0pt
+    \parskip 6pt
+    \fboxrule0pt
+    \hfuzz 100pt
+    \hbadness 10000
+
+\usepackage{etoolbox}
+    \patchcmd{\headrule}{\hrule}{\color{primary}\hrule}{}{}

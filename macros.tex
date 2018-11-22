@@ -1,0 +1,166 @@
+\usepackage{xcolor}
+\definecolor{coal}{rgb}{0.21, 0.27, 0.31}
+
+% <Command>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @desc		puts an tabulated bullet item inline
+% 			does not render page breaks
+\newcommand{\tabitem}{~~\llap{{\color{coal}\textbullet}}~~}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	a string set of the link to be rendered	
+% @desc		creates an url link rendered in bold style
+\newcommand{\booklink}[1]{{\color{coal}\textbf{URL:}\url{#1}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	a string set to be formated
+% @desc		creates an bold and cursive text with quotation-marks
+%			recommended for bibitem
+\newcommand{\book}[1]{\textbf{\textit{\grqq{}#1\grqq{}}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	a string set to be formatted
+% @desc		creates an bold and cursive text with quotation-marks
+%			recommended for bibitem
+\newcommand{\say}[1]{\grqq{}#1\grqq{}} 
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference (fig:#1)
+% @desc		creates a reference with title for figures
+\newcommand{\Abbildung}[1]{Abbildung~\ref{fig:#1} auf Seite~\pageref{fig:#1}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference
+% @desc		creates a reference with title for the apendix
+\newcommand{\Anhang}[1]{Anhang~\ref{#1} - \textit{\nameref{#1}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference
+% @desc		creates a reference with title for any existing reference
+\newcommand{\Punkt}[1]{Punkt~\ref{#1} - \textit{\nameref{#1}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference
+% @desc		creates a reference with title for the apendix
+\newcommand{\Tabelle}[1]{Tabelle~\ref{tab:#1} - \textit{\nameref{tab:#1}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference (sec:#1)
+% @desc		creates a reference with title for a section
+\newcommand{\Abschnitt}[1]{Abschnitt~\ref{sec:#1}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference (lst:#1)
+% @desc		creates a reference with title for a listing
+\newcommand{\Listing}[1]{Listing~\ref{lst:#1} - ~\textit{\nameref{lst:#1}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	bib reference
+% @desc		creates a reference with title for the apendix
+\newcommand{\Apx}[1]{Abschnitt~\ref{sec_apx:#1} - ~\textit{\nameref{sec_apx:#1}}}
+
+% <Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	text
+% @desc		writes the text in fold font
+\newcommand{\bold}[1]{\textbf{#1}}
+
+%##########################################################
+% LISTINGS
+%##########################################################
+
+% LISTING<Command[Listing]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	filename (folder listings)
+% @param[2]	caption of the listing
+% @param[3]	label of the listing (lst:#3)
+% @desc		renders a listings box
+ \newcommand{\node}[3]{\lstinputlisting [language=node, caption={#2}, label={lst:#3}]{listings/#1}}
+
+%##########################################################
+% Colors
+%##########################################################
+
+% COLOR<Command[Definition]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	hex rgb value for red
+% @param[2]	hex rgb value for green
+% @param[3]	hex rgb value for blue
+% @desc		assigns the primary color 
+\newcommand{\primaryColor}[3]{\definecolor{primary}{RGB}{#1,#2,#3}\def\R{#1}\def\G{#2}\def\B{#3}}
+
+% COLOR<Command[Definition]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	hex rgb value for red
+% @param[2]	hex rgb value for green
+% @param[3]	hex rgb value for blue
+% @desc		assigns the secondary color 
+\newcommand{\secondaryColor}[3]{\definecolor{secondary}{RGB}{#1,#2,#3}}
+
+%##########################################################
+% Helpers
+%##########################################################
+
+% HELPER<Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	heading title (kind of the project)
+% @desc		constructs the header for the cover
+\newcommand{\HEAD}[1]{\begin{center}{\Huge #1}\linebreak zum Thema \linebreak\end{center}}
+
+% HELPER<Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @desc		puts a new line withe 15pt separation
+%			used for the cover sections
+\newcommand{\fline}{\\[15pt]}
+
+% HELPER<Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1]	column heading
+% @desc		renders the column header for the cover page
+\newcommand{\rowhd}[1]{\textbf{#1:}}
+
+% HELPER<Command[String]>
+% @version	v 1.0
+% @author 	Florian-PDV
+% @param[1] main title of the project
+% @desc		assigns the title string to the header variables
+%			if the title is longer then 30 characters the right header
+%			use the work title instead
+\newcommand{\assignTitle}[1]{%
+\newcommand{\FullTitle}{#1}
+    \newcommand{\Title}{#1}% Zuweisung zu myTitle
+    \def\lenght{\newTitle}%
+    \def\mystring{#1}%    
+    \stringlength[q]{\mystring}% Result is stored in \theresult
+    \def\mythresh{30}
+    %\ifnum\theresult>\mythresh \def\newTitle{\worktitle} \else \def\newTitle{#1}\fi    
+    \ifnum\theresult>\mythresh \newcommand{\newTitle}{\worktitle} \else \newcommand{\newTitle}{#1}\fi    
+}
