@@ -13,7 +13,7 @@
 2.  Add and replace the example pages with your apges in index.tex in the document folder
 3.  Add references in the literature.tex
 
-``
+```latex
 \newcommand{\worktitle}{Vorlage}
 \newcommand{\short}{Latex-DHGE-Vorlage}
 \assignTitle{Entwurf einer Latex-Vorlage für Projektarbeiten}
@@ -46,4 +46,4 @@
 %Farbpalette
 \primaryColor{21}{33}{71}
 \secondaryColor{2}{143}{209}
-``
+```
